@@ -1,0 +1,21 @@
+{{define "content"}}
+<section class="page-heading">
+  <div><p class="eyebrow">LATIHAN LOGIKA KONDISI</p><h1>Announcement</h1><p class="page-description">Halaman ini menunjukkan cara mengirim nilai dari Go ke HTML template dan menggunakan kondisi.</p></div>
+</section>
+<section class="announcement-card">
+  <div class="announcement-icon">✦</div>
+  <div class="announcement-content">
+    <p class="eyebrow">HASIL PENGUMUMAN</p>
+    <h2>Nilai latihan: {{.nilai}}</h2>
+    {{if .is_kkm_oke}}
+      <div class="result-pill result-success">Lulus — nilai di atas KKM</div>
+      <p>Selamat! Nilai kamu memenuhi batas kelulusan latihan ini.</p>
+    {{else}}
+      <div class="result-pill result-warning">Belum lulus</div>
+      <p>Tetap semangat. Pelajari kembali materi dan coba lagi.</p>
+    {{end}}
+    <p class="muted">Contoh kondisi di main.go: nilai harus lebih dari 70.</p>
+  </div>
+</section>
+<div class="learning-note"><strong>Latihan berikutnya</strong><p>Ubah variabel <code>nilai</code> di <code>announcementHandler</code>, lalu refresh halaman ini untuk melihat perubahan kondisi.</p></div>
+{{end}}

@@ -1,0 +1,29 @@
+{{define "content"}}
+<section class="page-heading page-heading-row">
+  <div><p class="eyebrow">MANAJEMEN DATA</p><h1>Products</h1><p class="page-description">Contoh operasi CRUD menggunakan database MySQL.</p></div>
+  <a class="button" href="/products/form"><span aria-hidden="true">＋</span> Tambah produk</a>
+</section>
+<section class="table-card">
+  <div class="table-card-heading"><div><h2>Daftar produk</h2><p>Data dibaca langsung dari tabel <code>products</code>.</p></div><span class="table-count">{{len .products}} produk</span></div>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>ID</th><th>Nama produk</th><th>Harga</th><th>Stok</th><th>Keterangan</th><th>Aksi</th></tr></thead>
+      <tbody>
+        {{range .products}}
+        <tr>
+          <td class="id-cell">#{{.ID}}</td>
+          <td><strong>{{.Name}}</strong></td>
+          <td class="price-cell">{{rupiah .Price}}</td>
+          <td><span class="stock-pill">{{.Stock}}</span></td>
+          <td class="description-cell">{{if .Description}}{{.Description}}{{else}}<span class="muted">—</span>{{end}}</td>
+          <td><div class="action-row"><a class="action-link" href="/products/{{.ID}}/edit">Edit</a><form method="post" action="/products/{{.ID}}/hapus" onsubmit="return confirm('Yakin ingin menghapus produk ini?')"><button class="action-link danger-link" type="submit">Hapus</button></form></div></td>
+        </tr>
+        {{else}}
+        <tr><td colspan="6"><div class="empty-state table-empty"><strong>Belum ada produk</strong><p>Tambahkan produk pertama untuk mulai mencoba fitur CRUD.</p><a href="/products/form" class="text-link">Tambah produk →</a></div></td></tr>
+        {{end}}
+      </tbody>
+    </table>
+  </div>
+</section>
+<div class="learning-note"><strong>Catatan latihan</strong><p>Data produk tersimpan di MySQL. Gunakan tombol Edit dan Hapus untuk mencoba route <code>/products/{id}/edit</code> dan <code>/products/{id}/hapus</code>.</p></div>
+{{end}}

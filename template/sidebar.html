@@ -1,0 +1,15 @@
+{{define "sidebar"}}
+<aside class="sidebar">
+  <p class="nav-caption">MENU UTAMA</p>
+  <nav class="side-nav" aria-label="Navigasi utama">
+    <a href="/" class="nav-link{{if eq .title "Home"}} active{{end}}"><span class="nav-icon">⌂</span> Home</a>
+    <a href="/announcements" class="nav-link{{if eq .title "Announcement"}} active{{end}}"><span class="nav-icon">✦</span> Announcement</a>
+    <a href="/products" class="nav-link{{if eq .title "Products"}} active{{end}}"><span class="nav-icon">▤</span> Products</a>
+  </nav>
+  <div class="sidebar-tip">
+    <span class="tip-icon">✎</span>
+    <strong>Ruang latihan</strong>
+    <p>Coba ubah template, tambahkan route, lalu lihat hasilnya di browser.</p>
+  </div>
+</aside>
+{{end}}

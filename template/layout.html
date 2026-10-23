@@ -1,0 +1,24 @@
+{{define "layout"}}
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Project latihan pemrograman web menggunakan Golang dan HTML template.">
+  <title>{{.title}} | Pemweb Go</title>
+  <link rel="stylesheet" href="/static/css/app.css?v=20261023-2">
+</head>
+<body>
+  <div class="app-shell">
+    {{template "header" .}}
+    <div class="page-layout">
+      {{template "sidebar" .}}
+      <main class="main-content">
+        {{template "content" .}}
+      </main>
+    </div>
+    {{template "footer" .}}
+  </div>
+</body>
+</html>
+{{end}}

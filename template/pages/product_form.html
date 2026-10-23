@@ -1,0 +1,19 @@
+{{define "content"}}
+<section class="page-heading">
+  <div><p class="eyebrow">FORMULIR PRODUK</p><h1>{{.ProductForm.Judul}}</h1><p class="page-description">Isi informasi produk di bawah ini. Field bertanda wajib harus diisi.</p></div>
+</section>
+<section class="form-card">
+  {{if .ProductForm.Errors}}
+  <div class="alert alert-error" role="alert"><strong>Periksa kembali input kamu:</strong><ul>{{range .ProductForm.Errors}}<li>{{.}}</li>{{end}}</ul></div>
+  {{end}}
+  <form method="post" action="{{.ProductForm.Action}}" class="product-form">
+    <div class="form-field"><label for="name">Nama produk <span>*</span></label><input id="name" name="name" type="text" value="{{.ProductForm.Product.Name}}" placeholder="Contoh: Keyboard mekanik" required maxlength="150"><small>Gunakan nama yang mudah dikenali.</small></div>
+    <div class="form-row">
+      <div class="form-field"><label for="price">Harga (Rupiah) <span>*</span></label><input id="price" name="price" type="number" min="1" step="1" value="{{if .ProductForm.Product.Price}}{{.ProductForm.Product.Price}}{{end}}" placeholder="250000" required></div>
+      <div class="form-field"><label for="stock">Stok <span>*</span></label><input id="stock" name="stock" type="number" min="0" step="1" value="{{.ProductForm.Product.Stock}}" placeholder="10" required><small>Stok boleh bernilai 0.</small></div>
+    </div>
+    <div class="form-field"><label for="description">Keterangan</label><textarea id="description" name="description" rows="4" placeholder="Tambahkan deskripsi produk (opsional)">{{.ProductForm.Product.Description}}</textarea></div>
+    <div class="form-actions"><a class="button button-light" href="/products">Batal</a><button class="button" type="submit">Simpan produk <span aria-hidden="true">→</span></button></div>
+  </form>
+</section>
+{{end}}

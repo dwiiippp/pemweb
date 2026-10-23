@@ -1,0 +1,12 @@
+/* File latihan CSS tambahan. Coba aktifkan file ini dari template/layout.html. */
+.test-box {
+  padding: 16px;
+  border: 2px dashed #5b5ce2;
+  border-radius: 10px;
+  background: #f4f3ff;
+}
+
+.test-box h2 {
+  margin-top: 0;
+  color: #4546c8;
+}

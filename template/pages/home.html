@@ -1,0 +1,60 @@
+{{define "content"}}
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">SELAMAT DATANG DI PROJECT LATIHAN</p>
+    <h1>Belajar web development, satu fitur setiap langkah.</h1>
+    <p class="hero-description">Pelajari routing di Go, HTML template, pengolahan form, validasi input, dan operasi CRUD menggunakan database MySQL.</p>
+    <div class="button-row">
+      <a class="button" href="/products">Lihat produk <span aria-hidden="true">→</span></a>
+      <a class="button button-light" href="/announcements">Buka announcement</a>
+    </div>
+  </div>
+  <div class="hero-card">
+    <div class="code-window-top"><span></span><span></span><span></span><small>main.go</small></div>
+    <pre><code><span class="code-purple">func</span> main() {
+  mux := http.NewServeMux()
+  mux.HandleFunc(
+    <span class="code-green">"GET /"</span>, homeHandler,
+  )
+  log.Fatal(
+    http.ListenAndServe(<span class="code-green">":8000"</span>, mux),
+  )
+}</code></pre>
+    <div class="hero-card-caption"><span class="status-dot"></span> Server siap untuk latihan</div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <div><p class="eyebrow">MATERI PRAKTIK</p><h2>Yang akan kamu pelajari</h2></div>
+    <span class="muted">Mulai dari dasar</span>
+  </div>
+  <div class="feature-grid">
+    <article class="feature-card"><span class="feature-number">01</span><h3>Routing</h3><p>Menghubungkan URL dengan handler menggunakan <code>net/http</code>.</p></article>
+    <article class="feature-card"><span class="feature-number">02</span><h3>HTML Template</h3><p>Memisahkan layout, header, sidebar, footer, dan isi halaman.</p></article>
+    <article class="feature-card"><span class="feature-number">03</span><h3>CRUD MySQL</h3><p>Membuat, membaca, memperbarui, dan menghapus data produk.</p></article>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-heading">
+    <div><p class="eyebrow">CONTOH DATA</p><h2>Daftar pengguna</h2></div>
+    <span class="muted">Data statis dari main.go</span>
+  </div>
+  <div class="user-grid">
+    {{range .users}}
+    <article class="user-card">
+      <div class="avatar">{{printf "%.1s" .Name}}</div>
+      <div><h3>{{.Name}}</h3><p>{{.Email}}</p><span class="user-age">{{.Age}} tahun</span></div>
+    </article>
+    {{else}}
+    <p class="empty-state">Belum ada data pengguna.</p>
+    {{end}}
+  </div>
+</section>
+
+<section class="section-block animals-block">
+  <div class="section-heading"><div><p class="eyebrow">CONTOH RANGE</p><h2>Daftar hewan</h2></div><span class="muted">Menggunakan template range</span></div>
+  <div class="tag-list">{{range .hewan}}<span class="tag">{{.}}</span>{{end}}</div>
+</section>
+{{end}}
