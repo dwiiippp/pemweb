@@ -39,9 +39,9 @@ type ProductForm struct {
 
 // Data statis untuk latihan Go template pada halaman Home.
 var UserData = []User{
-	{Name: "Budi Bakoko", Email: "budi@mail.com", Age: 23},
-	{Name: "Cahya Bakoko", Email: "cahya@mail.com", Age: 21},
-	{Name: "Dedi Bakoko", Email: "dedi@mail.com", Age: 24},
+	{Name: "Budi Test", Email: "budi@mail.com", Age: 23},
+	{Name: "Bagas Test", Email: "bagas@mail.com", Age: 20},
+	{Name: "Putri Test", Email: "putri@mail.com", Age: 25},
 }
 
 var funcs = template.FuncMap{
@@ -111,7 +111,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	data := map[string]any{
 		"title": "Home",
 		"judul": "Belajar Pemrograman Web",
-		"hewan": []string{"shark", "whale", "dolphin"},
+		"hewan": []string{"cat", "bird", "snake"},
 		"users": UserData,
 	}
 	if err := tplHome.ExecuteTemplate(w, "layout", data); err != nil {
